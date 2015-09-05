@@ -45,3 +45,6 @@ body{
         text-align:left;
         color : rgb(40,40,40);
     }
+#loginPage {
+  width : 100%;
+}
