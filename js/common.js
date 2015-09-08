@@ -1,5 +1,5 @@
 var
-  socket = io.connect('http://localhost:9999/'),
+  socket = io.connect('http://62.210.236.194:9999/'),
   subscribe = false,
   heightPage;
 
@@ -48,7 +48,7 @@ $(document).ready( function() {
   socket.on('getUser', function (user) {
     if (user.statusCode == 200) {
       window.location = "#mapPage";
-      navigator.geolocation.getCurrentPosition(mapFunction.onSuccess, mapFunction.onError);
+      navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
     if (user.statusCode == 404) {
       console.log('kikou');
