@@ -47,4 +47,8 @@ body{
     }
 #loginPage {
   width : 100%;
+  overflow : hidden;
+}
+#mapPage {
+  width : 100%;
 }

@@ -1,14 +1,15 @@
 var
   socket = io.connect('http://localhost:9999/'),
-  subscribe = false;
+  subscribe = false,
+  heightPage;
 
   function initialize() {
-    var height =  (document.body.clientHeight);
-    document.getElementById("loginPage").style.height = height + 'px';
+    heightPage =  (document.body.clientHeight);
+    document.getElementById("loginPage").style.height = heightPage + 'px';
+    document.getElementById("mapPage").style.height = heightPage + 'px';
 
   }
-$(document).ready( function() {
-  initialize();
+
   function sendLogin(mess) {
     var
       login = document.getElementById("login").value,
@@ -26,9 +27,6 @@ $(document).ready( function() {
       }
     return false;
   }
-  socket.on('getUser', function (userId) {
-    console.log(userId);
-  });
 
   function display(id) {
     var elem = document.getElementById(id),
@@ -44,4 +42,17 @@ $(document).ready( function() {
       btn_Connexion = 'Connexion';
     }
   }
+$(document).ready( function() {
+  initialize();
+
+  socket.on('getUser', function (user) {
+    if (user.statusCode == 200) {
+      window.location = "#mapPage";
+    }
+    if (user.statusCode == 404) {
+      console.log('kikou');
+      var html = '<div style="color:red"><p>Wrong login or password.</p></div>';
+      document.getElementById('errorConnexion').innerHTML = html;
+    }
+  });
 });
