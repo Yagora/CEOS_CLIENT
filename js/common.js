@@ -48,6 +48,7 @@ $(document).ready( function() {
   socket.on('getUser', function (user) {
     if (user.statusCode == 200) {
       window.location = "#mapPage";
+      navigator.geolocation.getCurrentPosition(mapFunction.onSuccess, mapFunction.onError);
     }
     if (user.statusCode == 404) {
       console.log('kikou');
