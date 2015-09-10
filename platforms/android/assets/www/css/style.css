@@ -1,0 +1,54 @@
+/* mobile specific : */
+@media only screen and (max-width: 600px){
+    body {
+        height:100%;
+        margin:0px;
+        padding:0px;
+        width:100%;
+        background-color : rgb(50,50,80);
+        color : white;
+    }
+    #tchat {
+        background-color : white;
+        opacity : 0.8;
+        width : 500px;
+        height : 300px;
+        border : 3px rgb(40,40,40) solid;
+        overflow : auto;
+    }
+}
+body{
+        -webkit-text-size-adjust:none;
+    }
+    html, body {
+        margin:0px;
+        padding:0px;
+        height:100%;
+        width:100%;
+        background-color : rgb(50,50,80);
+        color : white;
+        text-align : center;
+    }
+
+    #tchat {
+        background-color : white;
+        opacity : 0.8;
+        width : 500px;
+        height : 300px;
+        margin : auto;
+        border : 3px rgb(40,40,40) solid;
+        overflow : auto;
+    }
+    .line {
+        border-bottom : 1px rgb(80,80,80) solid;
+        padding : 4px;
+        text-align:left;
+        color : rgb(40,40,40);
+    }
+#loginPage {
+  width : 100%;
+  overflow : hidden;
+}
+#mapPage {
+  width : 100%;
+}
