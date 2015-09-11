@@ -3,11 +3,12 @@ socket = io.connect('http://62.210.236.194:9999/'),
 subscribe = false,
 heightPage;
 
-
 function initialize() {
   heightPage =  (document.body.clientHeight);
   document.getElementById("loginPage").style.height = heightPage + 'px';
   document.getElementById("mapPage").style.height = heightPage + 'px';
+  var newHeight =  Math.floor(heightPage / 1.10);
+  document.getElementById("geolocation").style.height = newHeight  + 'px';
   document.getElementById("addLokiPage").style.height = heightPage + 'px';
 
 }
@@ -61,12 +62,17 @@ function takePicture() {
   }, cameraOptions);
 }
 
+function goToPage(location) {
+  window.location = location;
+  navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
+
 $(document).ready( function() {
   initialize();
 
   socket.on('getUser', function (user) {
     if (user.statusCode == 200) {
-      window.location = "#mapPage";
+      goToPage('#mapPage');
       navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
     if (user.statusCode == 404) {

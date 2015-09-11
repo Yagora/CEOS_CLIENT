@@ -11,7 +11,7 @@ function onSuccess(position)  {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
-        var map = new google.maps.Map(document.getElementById("mapPage"), mapOptions);
+        var map = new google.maps.Map(document.getElementById("geolocation"), mapOptions);
 
         markers(45.738712, 4.839438, map);
         markers(45.733635, 4.836649, map);

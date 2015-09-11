@@ -35,11 +35,17 @@
 		<a href="#" id="subscribeLink" data-role="button" data-theme="c" data-inline="true" onclick="display('subscribe')">Subscribe</a>
 		<form onsubmit="return (sendLogin());">
 			<input id="btn_connexion" type="submit" value="Connexion" />
-			<div id="errorConnexion"></div>
+			<div id="errorConnexion"></div>	
 		</form>
+
+		<button onclick="goToPage('#addLokiPage')">Shortcut (A virer !)</button>
+
 	</div>
 
 	<div id="mapPage">
+		<div id="geolocation">
+	    </div>
+		<button onclick="goToPage('#addLokiPage')">Ajouter un Lieu</button>
 	</div>
 
 	<div id="addLokiPage">
@@ -55,6 +61,7 @@
 			<input id="btn_envoiLoki" type="submit" value="Ajouter" />
 			<div id="errorConnexion"></div>
 		</form>
+		<button onclick="goToPage('#mapPage')">Retourner sur la page</button>
 	</div>
 
 </div>
