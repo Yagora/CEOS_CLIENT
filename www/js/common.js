@@ -39,11 +39,12 @@ function sendLoki(mess) {
   var
   lokiName = document.getElementById("lokiName").value,
   tag = document.getElementById("tag").value,
-  photo = document.getElementById("photo").value; 
+  photo = document.getElementById("photo").value,
+  description = document.getElementById("description").value;
 
   navigator.geolocation.getCurrentPosition(onSuccess, onError);
-  socket.emit('addLoki', { 'lokiName' : lokiName, 'tag' : tag, 'photo' : photo, 'longitude' : longitude, 'latitude' : latitude});
-
+  socket.emit('addLoki', { 'lokiName' : lokiName, 'tag' : tag, 'photo' : photo, 'longitude' : longitude, 'latitude' : latitude, 'description': description });
+  return false;
 }
 
 function display(id) {
@@ -95,12 +96,12 @@ $(document).ready( function() {
     }
   });
 
-  socket.on('getConfAdd', function (add){
-    if (add.statusCode == 200) {
+  socket.on('getLoki', function (loki){
+    if (loki.statusCode == 200) {
       toast.success('Loki added !');
     }
     else {
-      console.log('error d add');
+      console.log('error Loki not added !');
       alert('code: ' + error.code + '\n' + 'message : ' + error.message + '\n');
     }
   });

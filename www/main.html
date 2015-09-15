@@ -38,7 +38,7 @@
 		<a href="#" id="subscribeLink" data-role="button" data-theme="c" data-inline="true" onclick="display('subscribe')">Subscribe</a>
 		<form onsubmit="return (sendLogin());">
 			<input id="btn_connexion" type="submit" value="Connexion" />
-			<div id="errorConnexion"></div>	
+			<div id="errorConnexion"></div>
 		</form>
 
 		<button onclick="goToPage('#addLokiPage')">Shortcut (A virer !)</button>
@@ -61,10 +61,12 @@
 			<input type="text" name="textinput-4" id="lokiName" placeholder="Name" value="">
 			<label for="textinput-4" class="ui-hidden-accessible">Tag</label>
 			<input type="text" name="textinput-4" id="tag" placeholder="Tag" value="">
+			<label for="textinput-4" class="ui-hidden-accessible">Description</label>
+			<textarea type="text" name="textinput-4" id="description" placeholder="description" value=""></textarea>
 			<button onclick="takePicture()">Prendre une photo</button>
 
 			<input type="text" name="textinput-4" id="photo" style="display:none">
-			
+
 		</div>
 		<form onsubmit="return (sendLoki());">
 			<input id="btn_envoiLoki" type="submit" value="Ajouter" />
