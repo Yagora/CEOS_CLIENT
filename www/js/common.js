@@ -1,7 +1,10 @@
 var
 socket = io.connect('http://62.210.236.194:9999/'),
 subscribe = false,
-heightPage;
+heightPage,
+longitude,
+latitude;
+
 
 function initialize() {
   heightPage =  (document.body.clientHeight);
@@ -29,7 +32,16 @@ function sendLogin(mess) {
     socket.emit('connexion', { 'login' : login, 'mdp' : mdp, 'lastName' : lastName, 'firstName' : firstName, 'email' : email, 'birthday' : birthday });
   }
   return false;
+}
 
+function sendLoki(mess) {
+  var
+  lokiName = document.getElementById("lokiName").value,
+  tag = document.getElementById("tag").value,
+  photo = document.getElementById("photo").value;
+
+  navigator.geolocation.getCurrentPosition(onSuccess, onError);
+  socket.emit('addLoki', { 'lokiName' : lokiName, 'tag' : tag, 'photo' : photo, 'longitude' : longitude, 'latitude' : latitude});
 
 }
 
@@ -81,4 +93,15 @@ $(document).ready( function() {
       document.getElementById('errorConnexion').innerHTML = html;
     }
   });
+
+  socket.on('getConfAdd', function (add){
+    if (add.statusCode == 200) {
+      alert('It totally worked !');
+    }
+    else {
+      console.log('error d add');
+      alert('code: ' + error.code + '\n' + 'message : ' + error.message + '\n');
+    }
+  });
+
 });

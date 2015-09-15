@@ -1,8 +1,8 @@
 
 function onSuccess(position)  {
 
-        var longitude = position.coords.longitude;
-        var latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        latitude = position.coords.latitude;
         var latLong = new google.maps.LatLng(latitude, longitude);
 
         var mapOptions = {
@@ -21,11 +21,9 @@ function onSuccess(position)  {
 
         var newLL = new google.maps.LatLng(45.733635, 4.836649);
 
-        console.log(google.maps);
-
         var distance = google.maps.geometry.spherical.computeDistanceBetween(newLL, latLong);
 
-        console.log(distance);
+        console.log(distance + ' m entre le centre et le simply');
     }
 
 

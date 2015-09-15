@@ -54,8 +54,11 @@
 			<label for="textinput-4" class="ui-hidden-accessible">Name</label>
 			<input type="text" name="textinput-4" id="lokiName" placeholder="Name" value="">
 			<label for="textinput-4" class="ui-hidden-accessible">Tag</label>
-			<input type="text" name="textinput-4" id="Tag" placeholder="Tag" value="">
+			<input type="text" name="textinput-4" id="tag" placeholder="Tag" value="">
 			<button onclick="takePicture()">Prendre une photo</button>
+
+			<input type="text" name="textinput-4" id="photo" style="display:none">
+			
 		</div>
 		<form onsubmit="return (sendLoki());">
 			<input id="btn_envoiLoki" type="submit" value="Ajouter" />
