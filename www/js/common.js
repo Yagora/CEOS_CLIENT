@@ -1,5 +1,5 @@
 var
-socket = io.connect('http://62.210.236.194:9999/'),
+socket = io.connect('http://localhost:9999/'),
 subscribe = false,
 heightPage,
 longitude,
