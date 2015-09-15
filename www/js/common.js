@@ -6,6 +6,7 @@ longitude,
 latitude;
 
 
+
 function initialize() {
   heightPage =  (document.body.clientHeight);
   document.getElementById("loginPage").style.height = heightPage + 'px';
@@ -38,7 +39,7 @@ function sendLoki(mess) {
   var
   lokiName = document.getElementById("lokiName").value,
   tag = document.getElementById("tag").value,
-  photo = document.getElementById("photo").value;
+  photo = document.getElementById("photo").value; 
 
   navigator.geolocation.getCurrentPosition(onSuccess, onError);
   socket.emit('addLoki', { 'lokiName' : lokiName, 'tag' : tag, 'photo' : photo, 'longitude' : longitude, 'latitude' : latitude});
@@ -96,7 +97,7 @@ $(document).ready( function() {
 
   socket.on('getConfAdd', function (add){
     if (add.statusCode == 200) {
-      alert('It totally worked !');
+      toast.success('Loki added !');
     }
     else {
       console.log('error d add');
