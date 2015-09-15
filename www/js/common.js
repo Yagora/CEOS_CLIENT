@@ -3,7 +3,10 @@ socket = io.connect('http://62.210.236.194:9999/'),
 subscribe = false,
 heightPage,
 longitude,
-latitude;
+latitude
+informationsUser = {},
+map
+;
 
 
 
@@ -76,6 +79,11 @@ function takePicture() {
   }, cameraOptions);
 }
 
+function askList(mess){
+  navigator.geolocation.getCurrentPosition(onSuccess, onError);
+  socket.emit('askList', { 'longitude' : longitude, 'latitude' : latitude});
+}
+
 function goToPage(location) {
   window.location = location;
   navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -86,6 +94,14 @@ $(document).ready( function() {
 
   socket.on('getUser', function (user) {
     if (user.statusCode == 200) {
+
+      informationsUser.login = user.login;
+      informationsUser.mdp = user.mdp;
+      informationsUser.lastName = user.lastName;
+      informationsUser.firstName = user.firstName;
+      informationsUser.email = user.email;
+      informationsUser.birthday = user.birthday;
+      
       goToPage('#mapPage');
       navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
@@ -102,8 +118,17 @@ $(document).ready( function() {
     }
     else {
       console.log('error Loki not added !');
-      alert('code: ' + error.code + '\n' + 'message : ' + error.message + '\n');
+      toast.error('code: ' + error.code + '\n' + 'message : ' + error.message + '\n');
     }
   });
+
+  socket.on('getList', function (list){
+   for each (var loki in list)
+   {
+    markers(loki);
+  }
+});
+
+    //receive loki (socket)
 
 });

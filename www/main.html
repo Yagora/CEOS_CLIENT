@@ -14,10 +14,11 @@
 	<script src="js/common.js"></script>
 	<script src="js/map.js"></script>
 	<script src="js/toastr.js"></script>
+	<script src="js/cordova.js"></script>
 </head>
 <body>
 
-	<div id="loginPage">
+	<div id="loginPage" data-role="page">
 		<h1>Login</h1>
 		<div id="connexion">
 			<label for="textinput-4" class="ui-hidden-accessible">Login</label>
@@ -45,16 +46,16 @@
 
 	</div>
 
-	<div id="mapPage">
+	<div id="mapPage" data-role="page">
 		<div id="geolocation">
 		</div>
 		<div style="">
 			<button onclick="goToPage('#addLokiPage')" style="display:inline;width:50%;float:left">Ajouter un Lieu</button>
-			<button onclick="goToPage('#addLokiPage')" style="display:inline;width:50%"></button>
+			<button onclick="askList()	" style="display:inline;width:50%">Afficher les Lieux</button>
 		</div>
 	</div>
 
-	<div id="addLokiPage">
+	<div id="addLokiPage" data-role="page">
 		<h1>Créer un Lieu</h1>
 		<div>
 			<label for="textinput-4" class="ui-hidden-accessible">Name</label>
@@ -73,6 +74,12 @@
 			<div id="errorConnexion"></div>
 		</form>
 		<button onclick="goToPage('#mapPage')">Retourner sur la page</button>
+	</div>
+
+	<div id="infoPage" data-role="page">
+		<div>
+			<h1>Bonjour</h1>
+		</div>
 	</div>
 
 </div>
