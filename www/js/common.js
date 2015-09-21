@@ -1,12 +1,12 @@
 var
-socket = io.connect('http://localhost:9999/'),
+//socket = io.connect('http://localhost:9999/'),
+socket = io.connect('http://62.210.236.194:9999/'),
 subscribe = false,
 heightPage,
 longitude,
-latitude
+latitude,
 informationsUser = {},
-map
-;
+map;
 
 
 
@@ -17,7 +17,6 @@ function initialize() {
   var newHeight =  Math.floor(heightPage / 1.10);
   document.getElementById("geolocation").style.height = newHeight  + 'px';
   document.getElementById("addLokiPage").style.height = heightPage + 'px';
-
 }
 
 function sendLogin(mess) {
@@ -66,20 +65,28 @@ function display(id) {
 }
 
 function takePicture() {
+  if (!navigator.camera) {
+     alert("Camera API not supported", "Error");
+     return;
+  }
+
   navigator.camera.getPicture(function(imageURI) {
 
-    console.log(imageURI);
-    alert('La photo marche ' + imageURI);
+     document.getElementById("photo").value = imageURI;
 
   }, function(err) {
-
     alert('code: ' + error.code + '\n' + 'message : ' + error.message + '\n');
-    console.log(err);
+  }, {
+    quality: 50,
+    destinationType: Camera.DestinationType.DATA_URL,
+    sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Album
+    encodingType: 0     // 0=JPG 1=PNG
+  });
 
-  }, cameraOptions);
+  return false;
 }
 
-function askList(mess){
+function askList(){
   navigator.geolocation.getCurrentPosition(onSuccess, onError);
   socket.emit('askList', { 'longitude' : longitude, 'latitude' : latitude});
 }
@@ -91,7 +98,7 @@ function goToPage(location) {
 
 $(document).ready( function() {
   initialize();
-
+askList();
   socket.on('getUser', function (user) {
     if (user.statusCode == 200) {
 
@@ -101,9 +108,10 @@ $(document).ready( function() {
       informationsUser.firstName = user.firstName;
       informationsUser.email = user.email;
       informationsUser.birthday = user.birthday;
-      
+
       goToPage('#mapPage');
       navigator.geolocation.getCurrentPosition(onSuccess, onError);
+      askList();
     }
     if (user.statusCode == 404) {
       console.log('kikou');
@@ -123,10 +131,9 @@ $(document).ready( function() {
   });
 
   socket.on('getList', function (list){
-   for each (var loki in list)
-   {
-    markers(loki);
-  }
+   list.forEach(function (loki) {
+     markers(loki);
+   });
 });
 
     //receive loki (socket)
