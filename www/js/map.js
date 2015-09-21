@@ -43,7 +43,7 @@ function markers(loki){
 
 function toastLoki(loki) {
 
-  toastr["info"](loki.tag + "<br /><img src='data:image/jpeg;base64," + loki.photo + "'/><a onclick='askLoki("+ loki +")'>" + loki.lokiName + "</a>");
+  toastr["info"](loki.tag + '<br /><a href="#infoPage" data-rel="dialog">Afficher</a> : ' + loki.lokiName);
 
   toastr.options = {
     "closeButton": true,
@@ -62,7 +62,12 @@ function toastLoki(loki) {
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut",
     "tapToDismiss": false
-  }
+  };
+
+  document.getElementById("lokiTitle").innerHTML = loki.lokiName;
+  document.getElementById("lokiPhoto").innerHTML = "<img src='data:image/jpeg;base64," + loki.photo + "'/>";
+  document.getElementById("lokiDescription").innerHTML = loki.description;
+
 }
 
 function askLoki(loki){
