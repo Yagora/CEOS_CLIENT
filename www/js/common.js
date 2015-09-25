@@ -87,18 +87,19 @@ function takePicture() {
 }
 
 function askList(){
-  navigator.geolocation.getCurrentPosition(onSuccess, onError);
+  setTimeout(function () {
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+  }, 2000);
   socket.emit('askList', { 'longitude' : longitude, 'latitude' : latitude});
 }
 
 function goToPage(location) {
   window.location = location;
-  navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
 $(document).ready( function() {
   initialize();
-askList();
+  askList();
   socket.on('getUser', function (user) {
     if (user.statusCode == 200) {
 
@@ -110,11 +111,9 @@ askList();
       informationsUser.birthday = user.birthday;
 
       goToPage('#mapPage');
-      navigator.geolocation.getCurrentPosition(onSuccess, onError);
       askList();
     }
     if (user.statusCode == 404) {
-      console.log('kikou');
       var html = '<div style="color:red"><p>Wrong login or password.</p></div>';
       document.getElementById('errorConnexion').innerHTML = html;
     }
@@ -135,7 +134,4 @@ askList();
      markers(loki);
    });
 });
-
-    //receive loki (socket)
-
 });

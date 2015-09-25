@@ -5,7 +5,7 @@
         margin:0px;
         padding:0px;
         width:100%;
-        background-color : rgb(50,50,80);
+        background-color : white;
         color : white;
     }
     #tchat {
@@ -25,19 +25,8 @@ body{
         padding:0px;
         height:100%;
         width:100%;
-        background-color : rgb(50,50,80);
         color : white;
         text-align : center;
-    }
-
-    #tchat {
-        background-color : white;
-        opacity : 0.8;
-        width : 500px;
-        height : 300px;
-        margin : auto;
-        border : 3px rgb(40,40,40) solid;
-        overflow : auto;
     }
     .line {
         border-bottom : 1px rgb(80,80,80) solid;
@@ -51,4 +40,7 @@ body{
 }
 #mapPage {
   width : 100%;
+}
+#lokiPhoto img {
+    width:50%;
 }

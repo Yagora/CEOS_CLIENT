@@ -49,7 +49,7 @@
 		</div>
 		<div style="">
 			<button onclick="goToPage('#addLokiPage')" style="display:inline;width:50%;float:left">Ajouter un Lieu</button>
-			<button onclick="askList()	" style="display:inline;width:50%">Afficher les Lieux</button>
+			<button onclick="askList()" style="display:inline;width:50%">Afficher les Lieux</button>
 		</div>
 	</div>
 
@@ -69,13 +69,14 @@
 			<input id="btn_envoiLoki" type="submit" value="Ajouter" />
 			<div id="errorConnexion"></div>
 		</form>
-		<button onclick="goToPage('#mapPage')">Retourner sur la page</button>
+		<button onclick="goToPage('#mapPage')">Retourner sur la map</button>
 	</div>
 
 	<div id="infoPage" data-role="page">
-		<div>
-			<h1>Bonjour</h1>
-		</div>
+		<button onclick="goToPage('#mapPage')">X</button>
+		<p id="lokiTitle"></p>
+		<p id="lokiPhoto"></p>
+		<p id="lokiDescription"></p>
 	</div>
 
 </div>

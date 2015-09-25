@@ -13,7 +13,6 @@ function onSuccess(position)  {
   longitude = position.coords.longitude;
   latitude = position.coords.latitude;
 
-
   map = new google.maps.Map(document.getElementById("geolocation"), mapOptions);
 }
 
@@ -41,22 +40,25 @@ function markers(loki){
 
 }
 
+function goToLoki() {
+  toastr.clear();
+  goToPage('#infoPage');
+}
+
 function toastLoki(loki) {
 
-  toastr["info"](loki.tag + '<br /><a href="#infoPage" data-rel="dialog">Afficher</a> : ' + loki.lokiName);
+  toastr["info"](loki.tag + '<br /><button onclick="goToLoki()" data-rel="dialog">Afficher</a> : ' + loki.lokiName);
 
   toastr.options = {
     "closeButton": true,
-    "debug": false,
-    "newestOnTop": true,
+    "debug": true,
+    //"newestOnTop": true,
     "progressBar": false,
     "positionClass": "toast-top-right",
     "preventDuplicates": true,
-    "onclick": null,
     "showDuration": "1000",
     "hideDuration": "1000",
-    "timeOut": 0,
-    "extendedTimeOut": 0,
+    "timeOut": 4000,
     "showEasing": "swing",
     "hideEasing": "linear",
     "showMethod": "fadeIn",
