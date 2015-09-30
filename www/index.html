@@ -4,8 +4,8 @@
 	<meta charset="UTF-8" />
 	<title>CEOS</title>
 	<script type="text/javascript" src="js/socket.io.js"></script>
+	<!-- <link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.css" /> -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.css" />
 	<link rel="stylesheet" type="text/css" href="css/toastr.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="jquery-mobile/jquery.mobile-1.4.5.js"></script>
@@ -19,29 +19,31 @@
 <body>
 
 	<div id="loginPage" data-role="page">
-		<h1>Login</h1>
+		<img src="img/logo-login.png" id="logoLogin"/>
 		<div id="connexion">
-			<label for="textinput-4" class="ui-hidden-accessible">Login</label>
-			<input type="text" name="textinput-4" id="login" placeholder="Login" value="">
-			<label for="textinput-4" class="ui-hidden-accessible">Password</label>
-			<input type="password" name="textinput-4" id="mdp" placeholder="Password" value="">
+			<label for="textinput-4" class="ui-hidden-accessible">YOUR AWESOME</label>
+			<input type="text" name="textinput-4" id="login" placeholder="USERNAME" value="">
+			<label for="textinput-4" class="ui-hidden-accessible">YOUR SECRET</label>
+			<input type="password" name="textinput-4" id="mdp" placeholder="PASSWORD" value="">
 		</div>
 		<div id="subscribe" style="display:none">
-			<label for="textinput-4" class="ui-hidden-accessible">Last Name</label>
-			<input type="text" name="textinput-4" id="lastName" placeholder="Last Name" value="">
-			<label for="textinput-4" class="ui-hidden-accessible">First Name</label>
-			<input type="text" n	ame="textinput-4" id="firstName" placeholder="First Name" value="">
-			<label for="textinput-4" class="ui-hidden-accessible">Email</label>
-			<input type="text" n	ame="textinput-4" id="email" placeholder="Email" value="">
-			<label for="date-1" class="ui-hidden-accessible">Birthday</label>
-			<input type="date" data-clear-btn="false" name="date-1" id="birthday" placeholder="Birthday" value="">
+			<label for="textinput-4" class="ui-hidden-accessible">YOUR BEAUTIFUL</label>
+			<input type="text" name="textinput-4" id="lastName" placeholder="LAST NAME" value="">
+			<label for="textinput-4" class="ui-hidden-accessible">YOUR BEAUTIFUL</label>
+			<input type="text" name="textinput-4" id="firstName" placeholder="FIRST NAME" value="">
+			<label for="textinput-4" class="ui-hidden-accessible">YOUR MAGNIFICENT</label>
+			<input type="text" name="textinput-4" id="email" placeholder="EMAIL ADDRESS" value="">
+			<label for="date-1" class="ui-hidden-accessible">YOUR INCREDIBLE</label>
+			<input type="date" data-clear-btn="false" name="date-1" id="birthday" placeholder="BIRTHDAY" value="">
 		</div>
-		<a href="#" id="subscribeLink" data-role="button" data-theme="c" data-inline="true" onclick="display('subscribe')">Subscribe</a>
+
 		<form onsubmit="return (sendLogin());">
-			<input id="btn_connexion" type="submit" value="Connexion" />
+		<label for="textinput-4" class="ui-hidden-accessible">LET'S GO AND</label>
+			<button id="btn_connexion" type="submit">CONNECT</button>
 			<div id="errorConnexion"></div>
 		</form>
-		<button onclick="goToPage('#addLokiPage')">Shortcut (A virer !)</button>
+		<label for="textinput-4" class="ui-hidden-accessible">YOU WANT TO</label>
+		<button href="#" id="subscribeLink" data-role="button" data-theme="c" data-inline="true" onclick="display('subscribe')">SUBSCRIBE</button>
 	</div>
 
 	<div id="mapPage" data-role="page">

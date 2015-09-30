@@ -18,9 +18,17 @@
     }
 }
 body{
-        -webkit-text-size-adjust:none;
-    }
-    html, body {
+    -webkit-text-size-adjust:none;
+    font-family: futura;
+    font-size: 24px;
+    letter-spacing: 15px;
+}
+a {
+    border:none;
+    outline: none;
+    border-style: none;
+}
+html, body {
         margin:0px;
         padding:0px;
         height:100%;
@@ -34,10 +42,73 @@ body{
         text-align:left;
         color : rgb(40,40,40);
     }
+
+/*LOGIN PAGE*/
 #loginPage {
   width : 100%;
-  overflow : hidden;
+  background: url("../img/fond-login.jpg") no-repeat;
+  color: black;
+  text-align: left;
+ /* padding-left:80px;*/
+
+
 }
+#logoLogin {
+    padding-top :50px;
+    padding-bottom:50px;
+    /*text-align: center;*/
+}
+#loginPage input {
+    background-color: rgba(0, 0, 255, 0);
+    margin-top:26px;
+    border:none;
+    padding-bottom: 25px;
+    border-bottom: 3px solid black;
+    color: black;
+    font-size: 60px;
+    height: 60px;
+    margin-bottom:50px;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: black;
+    font-weight: bold;
+    font-size: 60px;
+    letter-spacing: 40px;
+    padding-bottom: 25px;
+}
+#loginPage label {
+    display:block;
+}
+#subscribeLink {
+    display:block;
+    background-color: rgba(0, 0, 255, 0);
+    margin-top:26px;
+    border:0;
+    padding-bottom: 25px;
+    border-bottom: 3px solid black;
+    color: black;
+    font-size: 60px;
+    height: 60px;
+    margin-bottom:50px;
+}
+#loginPage button {
+    display:block;
+    background-color: rgba(0, 0, 255, 0);
+    margin-top:26px;
+    border:0;
+    border-bottom: 3px solid black;
+    color: black;
+    font-size: 60px;
+    height: 60px;
+    margin-bottom:50px;
+    color: black;
+    font-weight: bold;
+    font-size: 60px;
+    letter-spacing: 40px;
+    padding-bottom: 50px;
+}
+
+/*MAP PAGE*/
 #mapPage {
   width : 100%;
 }
