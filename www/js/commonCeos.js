@@ -26,8 +26,10 @@ function sendLogin(mess) {
   lastName = document.getElementById("lastName").value,
   firstName = document.getElementById("firstName").value,
   email = document.getElementById("email").value,
-  birthday = document.getElementById("birthday").value;
+  birthday = document.getElementById("birthday").value,
+  loginLoading = '<div style="color:#B12C32"><p>Ongoing authentication...</p></div>';
 
+  document.getElementById('errorConnexion').innerHTML = loginLoading;
   if (!subscribe) {
     socket.emit('connexion', { 'login' : login, 'mdp' : mdp });
   }
@@ -68,9 +70,9 @@ function takePicture() {
   }
 
   navigator.camera.getPicture(function(imageURI) {
-
-     document.getElementById("photo").value = imageURI;
-
+    document.getElementById("photo").value = imageURI;
+    document.getElementById("labelPhoto").style.color="#B12C32";
+    document.getElementById("btn_takePicture").style.color="#B12C32";
   }, function(err) {
     alert('code: ' + error.code + '\n' + 'message : ' + error.message + '\n');
   }, {
@@ -87,18 +89,28 @@ function askList(){
   setTimeout(function () {
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
   }, 2000);
+  setTimeout(function () {
   socket.emit('askList', { 'longitude' : longitude, 'latitude' : latitude});
+}, 2500);
 }
 
 function goToPage(location) {
   window.location = location;
+  askList();
+}
+
+function goToPageNoRefresh(location) {
+  window.location = location;
 }
 
 $(document).ready( function() {
-  corners: "false";
+   toastr.options = {
+    "timeOut": 1000
+  };
   initialize();
   askList();
   socket.on('getUser', function (user) {
+    var loginError = '<div style="color:red"><p>Wrong login or password.</p></div>';
     if (user.statusCode == 200) {
 
       informationsUser.login = user.login;
@@ -112,18 +124,17 @@ $(document).ready( function() {
       askList();
     }
     if (user.statusCode == 404) {
-      var html = '<div style="color:red"><p>Wrong login or password.</p></div>';
-      document.getElementById('errorConnexion').innerHTML = html;
+      document.getElementById('errorConnexion').innerHTML = loginError;
     }
   });
-
   socket.on('getLoki', function (loki){
     if (loki.statusCode == 200) {
-      toast.success('Loki added !');
+      toastr.success('Loki added !');
+      goToPage('#mapPage');
     }
     else {
       console.log('error Loki not added !');
-      toast.error('code: ' + error.code + '\n' + 'message : ' + error.message + '\n');
+      toastr.error('code: ' + error.code + '\n' + 'message : ' + error.message + '\n');
     }
   });
 

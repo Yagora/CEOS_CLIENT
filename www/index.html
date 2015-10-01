@@ -11,7 +11,7 @@
 	<script src="jquery-mobile/jquery.mobile-1.4.5.js"></script>
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
 	<script src="js/markerwithlabel.js" type="text/javascript"></script>
-	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/commonCeos.js"></script>
 	<script type="text/javascript" src="js/map.js"></script>
 	<script type="text/javascript" src="js/toastr.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
@@ -52,8 +52,8 @@
 		<div id="geolocation">
 		</div>
 		<div>
-			<button onclick="goToPage('#addLokiPage')" id="btn_createPlace" data-corners="false" style="display:inline;width:50%;float:left">CREATE A PLACE</button>
-			<button onclick="askList()" style="display:inline;width:50%">SHOW LOCKY</button>
+			<button onclick="goToPageNoRefresh('#addLokiPage')" id="btn_createPlace" data-corners="false" style="display:inline;width:50%;float:left">CREATE A PLACE</button>
+			<button onclick="askList()" style="display:inline;width:50%">SHOW PLACES</button>
 		</div>
 	</div>
 
@@ -71,21 +71,19 @@
 				<input type="text" name="textinput-4" id="photo" style="display:none;">
 			</div>
 			<div id="goLocky">
-				<label for="textinput-4">TAKE ONE BEAUTIFUL</label>
-				<button data-corners="false" onclick="takePicture()">PHOTO</button>
+				<label id="labelPhoto" for="textinput-4">TAKE ONE BEAUTIFUL</label>
+				<button id="btn_takePicture" data-corners="false" onclick="takePicture()">PHOTO</button>
 				<form id="sendLocky" onsubmit="return (sendLoki());">
 					<label for="textinput-4">AFTER THAT YOU MUST TO</label>
 					<button data-corners="false" id="btn_envoiLoki" type="submit">ADD IT</button>
 					<div id="errorConnexion"></div>
 				</form>
-				<label for="textinput-4">GO TO SEE IT ON THE</label>
-				<button data-corners="false" onclick="goToPage('#mapPage')">MAP</button>
 			</div>
 		</div>
 	</div>
 
 	<div id="infoPage" data-role="page">
-		<button id="closeLocky" data-corners="false" onclick="goToPage('#mapPage')">X</button>
+		<button id="closeLocky" data-corners="false" onclick="goToPageNoRefresh('#mapPage')">X</button>
 		<p id="lokiPhoto"></p>
 		<p id="lokiTitle"></p>
 		<p id="lokiDescription"></p>

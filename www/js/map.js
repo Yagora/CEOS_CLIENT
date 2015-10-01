@@ -41,7 +41,7 @@ function markers(loki){
 }
 
 function goToLoki() {
-  toastr.clear();
+  toastr.remove();
   goToPage('#infoPage');
 }
 
