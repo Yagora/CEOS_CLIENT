@@ -4,8 +4,8 @@
 	<meta charset="UTF-8" />
 	<title>CEOS</title>
 	<script type="text/javascript" src="js/socket.io.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/toastr.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="jquery-mobile/jquery.mobile-1.4.5.js"></script>
@@ -19,63 +19,75 @@
 <body>
 
 	<div id="loginPage" data-role="page">
-		<h1>Login</h1>
-		<div id="connexion">
-			<label for="textinput-4" class="ui-hidden-accessible">Login</label>
-			<input type="text" name="textinput-4" id="login" placeholder="Login" value="">
-			<label for="textinput-4" class="ui-hidden-accessible">Password</label>
-			<input type="password" name="textinput-4" id="mdp" placeholder="Password" value="">
+		<img src="img/logo-login.png" id="logoLogin"/>
+		<div class="elemConnection">
+			<div id="connexion">
+				<label for="textinput-4" >YOUR AWESOME</label>
+				<input type="text" data-corners="false" name="textinput-4" id="login" placeholder="USERNAME" value="">
+				<label for="textinput-4">YOUR SECRET</label>
+				<input type="password" data-corners="false" name="textinput-4" id="mdp" placeholder="PASSWORD" value="">
+			</div>
+			<div id="subscribe" style="display:none">
+				<label for="textinput-4">YOUR BEAUTIFUL</label>
+				<input type="text" data-corners="false" name="textinput-4" id="lastName" placeholder="LAST NAME" value="">
+				<label for="textinput-4">YOUR BEAUTIFUL</label>
+				<input type="text" data-corners="false" name="textinput-4" id="firstName" placeholder="FIRST NAME" value="">
+				<label for="textinput-4">YOUR MAGNIFICENT</label>
+				<input type="text" data-corners="false" name="textinput-4" id="email" placeholder="EMAIL" value="">
+				<label for="date-1">YOUR BIRTHDAY</label>
+				<input type="date" data-corners="false" data-clear-btn="false" name="date-1" id="birthday" placeholder="BIRTHDAY" value="">
+			</div>
+
+			<form id="formConnect" onsubmit="return (sendLogin());">
+			<label for="textinput-4">LET'S GO AND</label>
+				<button id="btn_connexion" data-corners="false" type="submit">CONNECT</button>
+				<div id="errorConnexion"></div>
+			</form>
+			<label for="textinput-4">YOU WANT TO</label>
+			<button href="#" id="subscribeLink" data-corners="false" data-role="button" data-theme="c" data-inline="true" onclick="display('subscribe')">SUBSCRIBE</button>
 		</div>
-		<div id="subscribe" style="display:none">
-			<label for="textinput-4" class="ui-hidden-accessible">Last Name</label>
-			<input type="text" name="textinput-4" id="lastName" placeholder="Last Name" value="">
-			<label for="textinput-4" class="ui-hidden-accessible">First Name</label>
-			<input type="text" n	ame="textinput-4" id="firstName" placeholder="First Name" value="">
-			<label for="textinput-4" class="ui-hidden-accessible">Email</label>
-			<input type="text" n	ame="textinput-4" id="email" placeholder="Email" value="">
-			<label for="date-1" class="ui-hidden-accessible">Birthday</label>
-			<input type="date" data-clear-btn="false" name="date-1" id="birthday" placeholder="Birthday" value="">
-		</div>
-		<a href="#" id="subscribeLink" data-role="button" data-theme="c" data-inline="true" onclick="display('subscribe')">Subscribe</a>
-		<form onsubmit="return (sendLogin());">
-			<input id="btn_connexion" type="submit" value="Connexion" />
-			<div id="errorConnexion"></div>
-		</form>
-		<button onclick="goToPage('#addLokiPage')">Shortcut (A virer !)</button>
 	</div>
 
 	<div id="mapPage" data-role="page">
 		<div id="geolocation">
 		</div>
-		<div style="">
-			<button onclick="goToPage('#addLokiPage')" style="display:inline;width:50%;float:left">Ajouter un Lieu</button>
-			<button onclick="askList()" style="display:inline;width:50%">Afficher les Lieux</button>
+		<div>
+			<button onclick="goToPage('#addLokiPage')" id="btn_createPlace" data-corners="false" style="display:inline;width:50%;float:left">CREATE A PLACE</button>
+			<button onclick="askList()" style="display:inline;width:50%">SHOW LOCKY</button>
 		</div>
 	</div>
 
 	<div id="addLokiPage" data-role="page">
-		<h1>Créer un Lieu</h1>
-		<div>
-			<label for="textinput-4" class="ui-hidden-accessible">Name</label>
-			<input type="text" name="textinput-4" id="lokiName" placeholder="Name" value="">
-			<label for="textinput-4" class="ui-hidden-accessible">Tag</label>
-			<input type="text" name="textinput-4" id="tag" placeholder="Tag" value="">
-			<label for="textinput-4" class="ui-hidden-accessible">Description</label>
-			<textarea type="text" name="textinput-4" id="description" placeholder="description" value=""></textarea>
-			<input type="text" name="textinput-4" id="photo" style="display:none;">
-			<button onclick="takePicture()">Prendre une photo</button>
+		<h1>CREATE EVENT</h1>
+		<p>IT WILL BE THE BEST EVER</p>
+		<div class="elemConnection">
+			<div id="fieldLocky">
+				<label for="textinput-4">SAY MY NAME SAY MY</label>
+				<input type="text" data-corners="false" name="textinput-4" id="lokiName" placeholder="NAME" value="">
+				<label for="textinput-4">ONLY THE</label>
+				<input type="text" data-corners="false" name="textinput-4" id="tag" placeholder="TAG" value="">
+				<label for="textinput-4">MUST TO BE AN AWESOME</label>
+				<textarea type="text" data-corners="false" name="textinput-4" id="description" placeholder="DESCRIPTION" value=""></textarea>
+				<input type="text" name="textinput-4" id="photo" style="display:none;">
+			</div>
+			<div id="goLocky">
+				<label for="textinput-4">TAKE ONE BEAUTIFUL</label>
+				<button data-corners="false" onclick="takePicture()">PHOTO</button>
+				<form id="sendLocky" onsubmit="return (sendLoki());">
+					<label for="textinput-4">AFTER THAT YOU MUST TO</label>
+					<button data-corners="false" id="btn_envoiLoki" type="submit">ADD IT</button>
+					<div id="errorConnexion"></div>
+				</form>
+				<label for="textinput-4">GO TO SEE IT ON THE</label>
+				<button data-corners="false" onclick="goToPage('#mapPage')">MAP</button>
+			</div>
 		</div>
-		<form onsubmit="return (sendLoki());">
-			<input id="btn_envoiLoki" type="submit" value="Ajouter" />
-			<div id="errorConnexion"></div>
-		</form>
-		<button onclick="goToPage('#mapPage')">Retourner sur la map</button>
 	</div>
 
 	<div id="infoPage" data-role="page">
-		<button onclick="goToPage('#mapPage')">X</button>
-		<p id="lokiTitle"></p>
+		<button id="closeLocky" data-corners="false" onclick="goToPage('#mapPage')">X</button>
 		<p id="lokiPhoto"></p>
+		<p id="lokiTitle"></p>
 		<p id="lokiDescription"></p>
 	</div>
 

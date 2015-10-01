@@ -28,7 +28,7 @@ function markers(loki){
        map: map,
        draggable: false,
        raiseOnDrag: true,
-       labelContent: loki.id, // your number
+       labelContent: loki.lokiName, // your number
        labelAnchor: new google.maps.Point(0, 60),
        labelClass: "labels", // the CSS class for the label
        labelInBackground: false
@@ -47,12 +47,11 @@ function goToLoki() {
 
 function toastLoki(loki) {
 
-  toastr["info"](loki.tag + '<br /><button onclick="goToLoki()" data-rel="dialog">Afficher</a> : ' + loki.lokiName);
+  toastr["info"]('<button id="toastrLockyInfo" onclick="goToLoki()" data-rel="dialog">' + loki.lokiName);
 
   toastr.options = {
     "closeButton": true,
     "debug": true,
-    //"newestOnTop": true,
     "progressBar": false,
     "positionClass": "toast-top-right",
     "preventDuplicates": true,

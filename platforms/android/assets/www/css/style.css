@@ -18,9 +18,16 @@
     }
 }
 body{
-        -webkit-text-size-adjust:none;
-    }
-    html, body {
+    -webkit-text-size-adjust:none;
+    font-family: futura;
+    /*letter-spacing: 15px;*/
+}
+a {
+    border:none;
+    outline: none;
+    border-style: none;
+}
+html, body {
         margin:0px;
         padding:0px;
         height:100%;
@@ -34,13 +41,203 @@ body{
         text-align:left;
         color : rgb(40,40,40);
     }
+
+/*LOGIN PAGE*/
+
 #loginPage {
   width : 100%;
-  overflow : hidden;
+  background: url("../img/fond-login.jpg") no-repeat;
+  background-size: 100% 100%;
+  color: black;
 }
+.elemConnection {
+    text-align: left;
+    letter-spacing: 6px;
+    margin-left:10%;
+}
+
+.ui-page-theme-a {
+    text-shadow:none;
+    font-weight: bold;
+}
+.ui-shadow-inset {
+    box-shadow: none;
+}
+.ui-focus {
+    box-shadow:0 0 12px #F00!important;
+}
+#connexion div, #subscribe div {
+    background-color:rgba(0, 0, 255, 0);
+    border:none!important;
+    text-shadow: none!important;
+    color:black;
+    width:80%;
+}
+.elemConnection label {
+    font-size: 60%;
+}
+#logoLogin {
+    padding-top :50px;
+    padding-bottom:50px;
+    width:70%;
+    text-align: center;
+    font-weight: bold;
+}
+#loginPage input {
+    background-color: rgba(0, 0, 255, 0);
+    border:none;
+    border-bottom: 1px solid black;
+    color: black;
+}
+::-webkit-input-placeholder {
+    color: black;
+    font-weight: bold;
+    letter-spacing: 10px;
+    font-size: 150%;
+}
+#loginPage label {
+    display:block;
+}
+#formConnect {
+    margin-top: 20%
+}
+#errorConnexion {
+    letter-spacing: 1px;
+}
+#loginPage button {
+    display:block;
+    background-color: rgba(0, 0, 255, 0);
+    border:0;
+    border-bottom: 1px solid black;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 10px;
+    font-size: 150%;
+    width:80%;
+    box-shadow: none;
+    text-shadow: none;
+    text-align: left;
+    padding:0%;
+
+}
+/*MAP PAGE*/
 #mapPage {
   width : 100%;
+
+}
+#mapPage #btn_createPlace {
+    border-right: 1px solid black;
+}
+#mapPage button {
+    display:block;
+    background-color: rgba(0, 0, 255, 0);
+    border:0;
+    color: black;
+    font-weight: bold;
+    box-shadow: none;
+    text-shadow: none;
+    text-align: center;
+}
+
+/* ADD EVENT PAGE */
+#addLokiPage {
+  width : 100%;
+  background: url("../img/fond-create-event.jpg") no-repeat;
+  background-size: 100% 100%;
+  color: black;
+}
+#addLokiPage div, #addLokiPage textarea {
+    background-color:rgba(0, 0, 255, 0);
+    border:none!important;
+    text-shadow: none!important;
+    color:black;
+}
+#addLokiPage button {
+    display:block;
+    background-color: rgba(0, 0, 255, 0);
+    border:0;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 10px;
+    font-size: 150%;
+    width:80%;
+    box-shadow: none;
+    text-shadow: none;
+    text-align: left;
+    padding:0%;
+
+}
+#addLokiPage textarea {
+    padding: 0%;
+}
+#addLokiPage input {
+    background-color: rgba(0, 0, 255, 0);
+    border:none;
+    border-bottom: 1px solid black;
+    color: black;
+    padding: 0%;
+}
+#fieldLocky {
+    margin-bottom: 10%;
+    width:85%;
+}
+#goLocky {
+    width:85%;
+}
+#addLokiPage p {
+    font-weight: lighter;
+    margin-top:-2%;
+}
+
+/* TOASTR */
+#toastrLockyInfo {
+    background-color: rgba(0, 0, 255, 0);
+    border:0;
+    color: black;
+    font-weight: bold;
+    font-size: 150%;
+    width:80%;
+    box-shadow: none;
+    text-shadow: none;
+    text-align: center;
+    padding:0%;
+}
+
+/* LOKI SHOW */
+#infoPage {
+    background-color:white;
+}
+#lokiPhoto {
+    margin:0;
 }
 #lokiPhoto img {
-    width:50%;
+    width:100%;
+    height: 50%;
+}
+
+#closeLocky {
+    background-color: rgba(255, 255, 255, 0.7);
+    border:0;
+    color: black;
+    font-weight: bold;
+    font-size: 150%;
+    width:8%;
+    height:6%;
+    box-shadow: none;
+    text-shadow: none;
+    position: absolute;
+    margin: 0;
+    right: 0;
+    padding: 0;
+}
+#lokiTitle {
+    font-size: 150%;
+    font-weight: bold;
+    text-align: center;
+}
+#lokiDescription {
+    text-align: justify;
+    width:95%;
+    margin:2.5%;
+    font-weight: lighter;
 }

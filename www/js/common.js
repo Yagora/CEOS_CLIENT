@@ -95,6 +95,7 @@ function goToPage(location) {
 }
 
 $(document).ready( function() {
+  corners: "false";
   initialize();
   askList();
   socket.on('getUser', function (user) {

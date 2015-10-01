@@ -50,17 +50,14 @@ function sendLoki(mess) {
 }
 
 function display(id) {
-  var elem = document.getElementById(id),
-  btn_Connexion = document.getElementById("btn_connexion").innerHTML;
+  var elem = document.getElementById(id);
 
   if (elem.style.display == 'none') {
     elem.style.display = 'inline';
     subscribe = true;
-    btn_Connexion = 'Subscribe';
   } else {
     elem.style.display = 'none';
     subscribe = true;
-    btn_Connexion = 'Connexion';
   }
 }
 
@@ -98,6 +95,7 @@ function goToPage(location) {
 }
 
 $(document).ready( function() {
+  corners: "false";
   initialize();
   askList();
   socket.on('getUser', function (user) {
